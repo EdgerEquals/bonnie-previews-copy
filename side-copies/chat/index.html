@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#F8CFDB">
+<title>Chat with Simmie</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Gochi+Hand&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/phi-timing.css?v=1">
+<link rel="stylesheet" href="css/dad-palette.css?v=1">
+<link rel="stylesheet" href="css/chat.css?v=phi1">
+<link rel="stylesheet" href="css/tty-box.css?v=phi1">
+<link rel="stylesheet" href="css/weather-chip.css?v=phi1">
+<link rel="stylesheet" href="css/ask-dad.css?v=phi1">
+<link rel="stylesheet" href="css/msg-pulse.css?v=1">
+<link rel="stylesheet" href="css/play-meters.css?v=2">
+</head>
+<body>
+<main id="app">
+
+  <section id="screen-loading" class="screen card center">
+    <p class="hand">Loading…</p>
+  </section>
+
+  <section id="screen-notready" class="screen card center" hidden>
+    <h1 class="logo">Chat with <span>Simmie</span></h1>
+    <p class="big">This chat isn't set up yet.</p>
+    <p class="muted">Check back soon. It'll be ready once the password is set.</p>
+  </section>
+
+  <section id="screen-login" class="screen card" hidden>
+    <h1 class="logo">Chat with <span>Simmie</span></h1>
+    <p class="muted">Type the password to open your private chat.</p>
+    <form id="login-form" autocomplete="off">
+      <label for="pw" class="hand">Password</label>
+      <div class="pw-row">
+        <input id="pw" type="password" autocomplete="off" required autocapitalize="none" autocorrect="off" spellcheck="false">
+        <button type="button" id="pw-toggle" class="ghost" aria-label="Show password">Show</button>
+      </div>
+      <p id="login-error" class="error" role="alert" hidden></p>
+      <button id="login-btn" class="btn" type="submit">Open chat</button>
+    </form>
+  </section>
+
+  <section id="screen-chat" class="screen chat" hidden>
+    <header class="chat-head">
+      <div class="who">
+        <div class="avatar" aria-hidden="true">S</div>
+        <div><div class="name">Simmie</div><div id="status" class="status">Replies usually take under a minute</div></div>
+      </div>
+      <span id="wx" class="wx" role="img" hidden></span>
+      <button id="lock-btn" class="ghost" type="button" title="Lock this chat" aria-label="Lock this chat">🔒<span class="lock-word"> Lock</span></button>
+      <button id="dad-chip" class="dad-chip" type="button" hidden><span class="dad-chip-from">From Dad:</span> <span id="dad-chip-q" class="dad-chip-q"></span> <span id="dad-chip-more" class="dad-chip-more" hidden></span> <span class="dad-chip-arrow" aria-hidden="true">↓</span></button>
+    </header>
+    <div id="log" class="log" aria-live="polite" aria-label="Messages"></div>
+    <div id="typing" class="typing" hidden><span class="dots"><i></i><i></i><i></i></span> <span id="typing-text">Waiting for Simmie…</span></div>
+    <div id="play" class="play"></div>
+    <section id="tty-dock" class="tty-dock" aria-label="Simmie terminal" hidden></section>
+    <form id="send-form" class="composer" autocomplete="off">
+      <textarea id="msg" rows="1" maxlength="1500" placeholder="Type a message…" aria-label="Message"></textarea>
+      <button id="send-btn" class="send" type="submit" aria-label="Send">➤</button>
+    </form>
+  </section>
+
+</main>
+<script src="js/crypto.js?v=4"></script>
+<script src="js/phi-timing.js?v=2"></script>
+<script src="js/weather-chip.js?v=3"></script>
+<script src="js/tty-box.js?v=phi1"></script>
+<script src="js/ask-dad.js?v=phi1"></script>
+<script src="js/app.js?v=phi1"></script>
+<script src="js/msg-pulse.js?v=2"></script>
+<script src="js/play-meters.js?v=2"></script>
+</body>
+</html>

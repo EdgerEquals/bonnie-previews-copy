@@ -1,0 +1,147 @@
+/* Bonnie's Dashboard: NIGHT palette from the age-dial control-room mock-up (simmie-chat moderation-bg-preview.html,
+   "DARK HALFWAY ZONE" theme, exact values). Loaded last; overrides the pink theme (mod.css) and the HUD (hud.css). */
+:root{--nt-page:#07060C;--nt-bar:#08070D;--nt-bg:#0E0C16;--nt-panel:#171425;--nt-panel2:#1F1B30;--nt-line:#2A9D9F;--nt-teal:#14555A;
+  --nt-amber:#F2A541;--nt-ink:#F3EAF0;--nt-soft:#C9BFD3;--nt-blush:#F8CFDB;--nt-pink:#E58AA6;--nt-mint:#C8EBD5;--nt-lav:#DCD0F2;
+  --nt-butter:#FBE7B0;--nt-peach:#FCD9C0;--nt-aqua:#B5E3E0;--nt-plum:#2A1424}
+html,html body,html body.locked,html body:not(.locked){background:var(--nt-page);color:var(--nt-ink)}
+/* ---------- gate ---------- */
+html .gate{background:radial-gradient(ellipse at 50% 40%,#15121F,#07060C 70%)}
+html .gate-card{background-color:var(--nt-panel);background-image:none;border:2px dashed rgba(229,138,166,.55);box-shadow:0 0 0 1px rgba(42,157,159,.25),0 10px 30px rgba(0,0,0,.5);color:var(--nt-ink)}
+html .gate-card h1{color:var(--nt-blush)}
+html .gate .wordmark .script{color:var(--nt-pink)} html .gate .wordmark .serif{color:var(--nt-lav)}
+html .gate .mod-label{color:var(--nt-mint)}
+html .gate-intro,html .gate-note{color:var(--nt-soft)}
+html .gate .field{background:var(--nt-bg);background-image:none;color:var(--nt-ink);box-shadow:inset 0 0 0 2px var(--nt-line)}
+html .gate .field::placeholder{color:#9E95AA}
+html .gate .btn-primary{background:transparent;color:var(--nt-blush);box-shadow:inset 0 0 0 2px var(--nt-pink)}
+html .gate-msg{color:var(--nt-blush)} html .gate-msg.warn{color:var(--nt-butter)}
+html :focus-visible{outline-color:var(--nt-amber)}
+/* ---------- header ---------- */
+html #app{color:var(--nt-ink);--hz-deep:#0E0C16;--hz-panel:#171425;--hz-plum:#1F1B30;--hz-teal:#14555A;--hz-teal-hi:#2A9D9F;--hz-sand:#F3EAF0}
+html #app h1,html #app h2,html #app h3{color:var(--nt-blush)}
+html #app .topbar{background:var(--nt-bar);color:var(--nt-ink);border-bottom:1px solid var(--nt-teal)}
+html #app .topbar .tagline{color:var(--nt-blush)}
+html #app .lockbtn{color:var(--nt-aqua);border-color:var(--nt-line)}
+html #app .lockbtn:hover{color:var(--nt-ink);border-color:var(--nt-aqua)}
+html #app .wx-hud{background:linear-gradient(90deg,var(--nt-bar),var(--nt-teal));border-bottom:1px solid var(--nt-line)}
+html #app .wx-chip{background:var(--nt-bg);border-color:var(--nt-line);color:var(--nt-ink)}
+html #app .tk-k{color:var(--nt-aqua)} html #app .tk-n{color:var(--nt-amber)} html #app .tk-s{color:var(--nt-lav)} html #app .tk-p{color:#8C849A}
+html #app .masthead{background:rgba(23,20,37,.97);border-bottom:2px dotted var(--nt-line)}
+html #app .wordmark .script{color:var(--nt-pink)} html #app .wordmark .serif{color:var(--nt-lav)}
+html #app .mod-pill{background:var(--nt-teal);color:var(--nt-mint)}
+html #app .btn-info,html #app .btn-secondary{background:transparent;color:var(--nt-blush);box-shadow:inset 0 0 0 2px var(--nt-pink)}
+html #app .btn-primary{background:transparent;color:var(--nt-blush);box-shadow:inset 0 0 0 2px var(--nt-pink)}
+html #app .btn-approve{background:var(--nt-mint);color:#10261B}
+html #app .btn-danger{background:#B23A35;color:#fff}
+/* ---------- main, notice, tabs ---------- */
+html #app main#main{background:rgba(14,12,22,.78);border-radius:12px;margin-top:1rem;margin-bottom:1rem;box-shadow:0 0 0 1px rgba(42,157,159,.25)}
+html #app .notice{background-color:var(--nt-panel);background-image:none;border:2px dashed rgba(229,138,166,.55);color:var(--nt-ink)}
+html #app .example{background:var(--nt-pink);color:#1A0F18}
+html #app .queue-meta{color:var(--nt-soft);opacity:1}
+html #app .tabs{border-bottom:3px dotted var(--nt-line)}
+html #app .tab{color:var(--nt-lav);background:transparent}
+html #app .tab[aria-selected="true"]{background:var(--nt-blush);color:var(--nt-plum)}
+html #app .tab .count{background:var(--nt-panel2);color:var(--nt-butter)}
+html #app .tab[aria-selected="true"] .count{background:var(--nt-plum);color:var(--nt-blush)}
+/* ---------- cards ---------- */
+html #app .item{background:var(--nt-panel);color:var(--nt-ink);box-shadow:0 0 0 1px rgba(220,208,242,.12)}
+html #app .item h3{color:var(--nt-blush)}
+html #app .item .tag{color:var(--cat)}
+html #app .item .type{background:var(--nt-panel2);color:var(--nt-aqua)}
+html #app .item .src{color:var(--nt-peach)}
+html #app .item .sum,html #app .item .why,html #app .item .pic-credit{color:var(--nt-soft);opacity:1}
+html #app .item dt{color:var(--nt-lav)} html #app .item dd{color:var(--nt-ink)}
+html #app .age{color:var(--nt-amber)} html #app .age.bad{color:var(--nt-blush)}
+html #app .item .links a{color:var(--nt-mint)}
+html #app .item .pic{background:var(--nt-panel2)}
+html #app .flags li{background:#3A1A26;color:var(--nt-blush)}
+html #app .flags li.none{background:#173033;color:var(--nt-mint)}
+html #app .status.pending{background:var(--nt-panel2);color:var(--nt-butter)}
+html #app .status.approved{background:var(--nt-teal);color:var(--nt-mint)}
+html #app .status.rejected{background:#3A1A26;color:var(--nt-blush)}
+html #app .decision{background:var(--nt-panel2);color:var(--nt-soft)}
+html #app .empty{color:var(--nt-lav)}
+html #app .pipe{background:var(--nt-panel2);border:2px dashed rgba(229,138,166,.55);color:var(--nt-ink)}
+html #app .pipe.live{background:#173033;border-color:var(--nt-line);color:var(--nt-mint)}
+html #app .pipe.err{background:#3A1A26;border-color:var(--nt-pink);color:var(--nt-blush)}
+html #app .c-make{--cat:#F8CFDB}html #app .c-questions{--cat:#B5E3E0}html #app .c-mind{--cat:#C8EBD5}
+html #app .c-world{--cat:#DCD0F2}html #app .c-rwl{--cat:#FBE7B0}html #app .c-voice{--cat:#E58AA6}
+/* inline flows (reject / video / reset) */
+html #app .inline-panel{background:var(--nt-panel2);border:2px dashed rgba(229,138,166,.55);color:var(--nt-ink)}
+html #app .inline-panel .ip-title{color:var(--nt-blush)} html #app .inline-panel label{color:var(--nt-lav)}
+html #app .inline-panel .field{background:var(--nt-bg);background-image:none;color:var(--nt-ink);box-shadow:inset 0 0 0 2px var(--nt-line)}
+html #app .inline-panel .btn-primary{background:transparent;color:var(--nt-blush);box-shadow:inset 0 0 0 2px var(--nt-pink)}
+html #app .confirm-strip.danger{background:#3A1A26;border-color:var(--nt-pink);color:var(--nt-ink)}
+html #app .inline-msg{color:var(--nt-mint)}
+html #app .preview-note{background:var(--nt-panel2);border:2px dashed rgba(229,138,166,.55);color:var(--nt-butter)}
+/* ---------- footers, terminal, lights, mission log ---------- */
+html #app .footer{background:var(--nt-bar);color:var(--nt-lav);border-top:1px solid var(--nt-teal)}
+html #app .wx-foot{background:rgba(8,7,13,.94);border-top:1px solid var(--nt-line);color:var(--nt-ink)}
+html #app .il-foot{background:linear-gradient(to top,rgba(8,7,13,.94),rgba(8,7,13,.55))}
+html #app .tty{background:var(--nt-bg);border-color:rgba(42,157,159,.55)}
+html #app .tty-bar{background:var(--nt-panel2);color:rgba(220,208,242,.7);border-bottom:1px solid rgba(42,157,159,.35)}
+html #app .tty-bar i{background:#F8CFDB} html #app .tty-bar i:nth-child(2){background:#FBE7B0} html #app .tty-bar i:nth-child(3){background:#C8EBD5}
+html #app .tty-body::before{border-right-color:rgba(42,157,159,.55)}
+html #app .tty-p{color:var(--nt-amber)}
+html #app .tty-line,html #app .tty-in{color:#5EE6C0}
+html #app .tty-hint{color:rgba(220,208,242,0)} html #app .tty-line:hover .tty-hint{color:rgba(220,208,242,.5)}
+html #app .tty-send{background:var(--nt-amber);color:#24292E}
+html #app .tty-x{color:var(--nt-lav)}
+html #app .tty-mlog,html #app .ml-m{color:var(--nt-lav)} html #app .ml-t{color:var(--nt-amber)}
+html #app .wx-light{color:var(--nt-lav)}
+html #app .wx-light b{background:#2E2A40}
+html #app .wx-light.ok b{background:var(--nt-line);box-shadow:0 0 4px rgba(42,157,159,.8)}
+html #app .wx-wave path{stroke:var(--nt-line)}
+html #app .wx-gauge .g-arc{stroke:var(--nt-panel2)} html #app .wx-gauge circle{fill:var(--nt-blush)}
+html #app .wx-readout{color:var(--nt-ink)}
+html #app .wx-code{opacity:.12;filter:none}
+/* ---------- Ask Dad: one floating, draggable amber key (fixed; starts beside Lock) ---------- */
+.ad-spot{flex:none;width:98px;height:30px;margin-left:auto;margin-right:.5rem}
+html #app .ask-dad{position:fixed;left:0;top:0;z-index:45;margin:0;visibility:hidden;touch-action:none;user-select:none;-webkit-user-select:none;cursor:grab;
+  display:inline-flex;align-items:center;gap:4px;font:700 12px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:.3px;color:#24292E;
+  background:var(--nt-amber);border:0;border-radius:999px;padding:7px 11px 7px 9px;box-shadow:0 0 0 1px rgba(42,157,159,.7),0 0 10px rgba(242,165,65,.6);animation:ad-glow var(--phi-askdad-glow) ease-in-out var(--phi-askdad-glow-d) infinite;will-change:transform}
+html #app .ask-dad.ready{visibility:visible}
+html #app .ask-dad.dragging{cursor:grabbing;animation:none;box-shadow:0 0 0 2px var(--nt-line),0 6px 18px rgba(0,0,0,.5)}
+html #app .ask-dad::after{display:none}
+html #app .ask-dad .ad-ico{font-size:12px}
+html #app .ask-dad .ad-orbit>.ad-sat{left:44px;top:-6px;font-size:9px}
+html #app .ask-dad:focus-visible{outline:2px solid var(--nt-ink);outline-offset:2px}
+@keyframes ad-glow{0%,100%{box-shadow:0 0 0 1px rgba(42,157,159,.7),0 0 6px rgba(242,165,65,.45)}50%{box-shadow:0 0 0 1px rgba(42,157,159,.7),0 0 14px rgba(242,165,65,.95)}}
+/* Ask Dad window: deep sea-teal starfield, amber accents, green terminal text */
+html #app .dad-panel{left:10px;top:60px;bottom:auto;border:1px solid var(--nt-line);color:var(--nt-ink);
+  background:radial-gradient(1px 1px at 12% 20%,#fff,transparent),radial-gradient(1px 1px at 70% 30%,#DCD0F2,transparent),radial-gradient(1px 1px at 40% 75%,#fff,transparent),radial-gradient(1px 1px at 88% 82%,#F2A541,transparent),radial-gradient(1px 1px at 25% 55%,#C8EBD5,transparent),linear-gradient(160deg,#14555A,#0E0C16);
+  box-shadow:0 10px 30px rgba(0,0,0,.55),0 0 0 3px rgba(242,165,65,.12)}
+html #app .dp-title{color:var(--nt-amber)!important}
+html #app .dp-x{color:var(--nt-ink);border-color:rgba(220,208,242,.35)}
+html #app .dp-chip{background:rgba(242,165,65,.12);border-color:rgba(242,165,65,.6);color:var(--nt-amber)}
+html #app .dp-text,html #app .dp-key{background:rgba(14,12,22,.9);border-color:rgba(42,157,159,.55);color:#5EE6C0}
+html #app .dp-status{color:#5EE6C0} html #app .dad-panel.sent .dp-status{color:var(--nt-butter)}
+html #app .dad-panel.sent .dp-ripple,html #app .dad-panel.sent .dp-sat{animation:none;opacity:0}   /* the biplane replaces the zip + ripple */
+/* biplane + smoke (appended to body while flying) */
+.biplane{position:fixed;left:0;top:0;z-index:70;pointer-events:none;will-change:transform,opacity}
+.biplane .bp-prop{transform-box:fill-box;transform-origin:50% 50%;animation:bp-spin .12s linear infinite}
+@keyframes bp-spin{0%{transform:scaleY(1)}50%{transform:scaleY(.15)}100%{transform:scaleY(1)}}
+.bp-smoke{position:fixed;inset:0;z-index:69;pointer-events:none;overflow:hidden}
+.bp-puff{position:absolute;left:0;top:0;width:10px;height:10px;margin:-5px 0 0 -5px;border-radius:50%;background:radial-gradient(circle,rgba(243,234,240,.95),rgba(220,208,242,.55) 60%,rgba(220,208,242,0) 72%);will-change:transform,opacity}
+/* ---------- iPhone SE: keep the top bar readable next to Lock + the Ask Dad spot ---------- */
+@media(max-width:575px){html #app .topbar .tagline{font-size:.78rem;letter-spacing:1px} .ad-spot{width:96px;margin-right:.35rem}}
+@media(prefers-reduced-motion:reduce){html #app .ask-dad{animation:none}}
+/* header band on true black (was: top bar #08070D, ticker band linear-gradient(90deg,#08070D,#14555A), masthead rgba(23,20,37,.97));
+   borders, positioning and text colours unchanged (all light text, contrast only goes up on #000) */
+html #app .topbar,html #app .wx-hud,html #app .masthead{background:#000}
+/* Ask Dad as a true circle (was a ~92x30 oblong): 54x54, icon over a compact label; tap target 54px (>= 44).
+   Slow breathing on the CSS `scale` property (separate from the drag transform), PHI^3.5 = 5.39 s, golden-angle start. */
+html #app .ad-spot{width:54px;height:30px}
+html #app .ask-dad{width:54px;height:54px;padding:0;border-radius:50%;flex-direction:column;justify-content:center;gap:2px;
+  font:700 9px/1 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;letter-spacing:0;white-space:nowrap;text-align:center;
+  animation:ad-glow var(--phi-askdad-glow) ease-in-out var(--phi-askdad-glow-d) infinite,ad-breathe var(--phi-askdad-breathe) ease-in-out var(--phi-askdad-breathe-d) infinite}
+html #app .ask-dad .ad-ico{font-size:14px;line-height:1}
+html #app .ask-dad .ad-orbit>.ad-sat{left:31px;top:-5px;font-size:9px}   /* orbits just outside the 27px radius */
+@keyframes ad-breathe{0%,100%{scale:1}50%{scale:1.06}}
+html #app .ask-dad.dragging{animation:none}
+@media(prefers-reduced-motion:reduce){html #app .ask-dad{animation:none}}
+/* Ask Dad pinned at the top-right of the header (no longer floating or draggable): normal flow, Lock just to its left */
+html #app .topbar .tb-right{display:flex;align-items:center;gap:.6rem;margin-left:auto;flex:none}
+html #app .ask-dad{position:relative;left:auto;top:auto;transform:none;visibility:visible;cursor:pointer;touch-action:manipulation;z-index:2;flex:none}
+html #app .topbar .container{padding-top:3px;padding-bottom:3px}
+@media(max-width:575px){html #app .topbar .tb-right{gap:.4rem}}

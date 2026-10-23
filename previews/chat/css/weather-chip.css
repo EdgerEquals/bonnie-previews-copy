@@ -1,0 +1,40 @@
+/* Perth weather chip (header, top right). Dad palette. Transform + opacity animations only. */
+.wx{flex:none;display:inline-flex;align-items:center;gap:4px;height:30px;padding:0 9px 0 4px;border-radius:999px;
+  background:var(--dad-ocean-deep,#0A3F4C);border:1px solid var(--dad-ocean,#0F5C6E);color:var(--dad-sand,#F6EBD9);font-size:.85rem;line-height:1;white-space:nowrap}
+.wx-label{font-weight:700;color:var(--dad-amber,#F2A541)}
+.wx-place{color:var(--dad-sand,#F6EBD9);font-weight:400}
+.wx-stage{position:relative;display:inline-flex;align-items:center;height:26px;font-size:15px;line-height:1}
+.wx-sway{display:inline-block;width:19px;text-align:center;animation:wx-sway calc(var(--phi7) / 2) ease-in-out var(--sway-d,0s) infinite alternate}   /* one full sway = PHI^7 29.03s */
+.wx-sway:has(.wx-face){width:21px}
+.wx-face,.wx-gift{display:inline-block;will-change:transform,opacity}
+.wx-face{transition:opacity var(--phim3)}.wx-face.wx-fade{opacity:0}   /* face crossfade on the PHI^2 / PHI^3 / PHI^4 beats */
+.wx-gift{position:relative;z-index:1;opacity:0}
+.wx-icon{position:relative;z-index:2;display:inline-block;margin-left:2px;font-size:17px}
+@keyframes wx-sway{from{transform:translateX(-4px)}to{transform:translateX(4px)}}  /* each emoji ±4px (6–8 s full cycle, offset phases) + the group ±4px = up to ±8px */
+.wx-stage{animation:wx-sway-all calc(var(--phi7) / 2) ease-in-out -5.236s infinite alternate}
+@keyframes wx-sway-all{from{transform:translateX(-4px)}to{transform:translateX(4px)}}
+/* Story (11 s loop): turn away (rotateY + squish + lean + drift away from the icon), turn back over ~400 ms
+   and glide toward it while the offerings are handed over one by one; hold; soft reset. */
+.wx-face{animation:wx-face var(--phi6) ease-in-out var(--wx-face-d,0s) infinite}   /* offering story PHI^6 17.94s */
+@keyframes wx-face{
+  0%{transform:perspective(60px) rotateY(0) rotate(0) translateX(0) scaleX(1)}
+  9%,20%{transform:perspective(60px) rotateY(50deg) rotate(-9deg) translateX(-4px) scaleX(.86)}
+  23.6%{transform:perspective(60px) rotateY(0) rotate(4deg) translateX(5px) scaleX(1)}
+  26%,78%{transform:perspective(60px) rotateY(0) rotate(0) translateX(6px) scaleX(1)}
+  92%,100%{transform:perspective(60px) rotateY(0) rotate(0) translateX(0) scaleX(1)}}
+.wx-gift{animation-duration:var(--phi5);animation-timing-function:ease-out;animation-fill-mode:both;animation-iteration-count:1;animation-delay:calc(var(--phi3) + var(--n) * var(--phim1) - var(--wx-off,0s))}
+.wx-drop .wx-gift{animation-name:wx-drop}
+.wx-peek .wx-gift{animation-name:wx-peek}
+.wx-spin .wx-gift{animation-name:wx-spin}
+.wx-pop  .wx-gift{animation-name:wx-pop}
+@keyframes wx-drop{0%{opacity:0;transform:translateY(-15px)}4%{opacity:1;transform:translateY(2px)}6%{transform:translateY(-3px)}8%{transform:translateY(0)}82%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(0)}}
+@keyframes wx-peek{0%{opacity:0;transform:translateX(var(--to-icon,20px)) scale(.6)}8%{opacity:1;transform:translateX(0) scale(1)}30%{transform:translateX(0)}36%{transform:translateX(calc(var(--to-icon,20px) * .55)) scale(.85)}43%{transform:translateX(0) scale(1)}82%{opacity:1;transform:translateX(0) scale(1)}96%,100%{opacity:0;transform:translateX(var(--to-icon,20px)) scale(.6)}}
+@keyframes wx-spin{0%{opacity:0;transform:scale(.4) rotate(-360deg)}10%{opacity:1;transform:scale(1) rotate(0)}82%{opacity:1;transform:scale(1)}96%,100%{opacity:0;transform:scale(.8)}}
+@keyframes wx-pop{0%{opacity:0;transform:translateX(-8px) scale(.3)}6%{opacity:1;transform:translateX(0) scale(1.12)}9%{transform:scale(1)}82%{opacity:1;transform:scale(1)}88%{opacity:1;transform:scale(1.32)}92%,100%{opacity:0;transform:scale(0)}}
+.wx-paused *,.wx-paused{animation-play-state:paused!important}
+@media (prefers-reduced-motion:reduce){
+  .wx *,.wx{animation:none!important}
+  .wx-face{transform:translateX(3px)}
+  .wx-gift{opacity:1}
+}
+@media (max-width:480px){.wx-place{display:none}.wx{padding-right:7px}}

@@ -1,0 +1,6 @@
+/* Golden-ratio timing tokens (shared spec). --phiN = PHI^N seconds (m = minus). --gK = frac(K * 0.6180339887):
+   element K's start offset is period * --gK, used as a NEGATIVE animation-delay so nothing waits blank on load.
+   K: 1 blinks/breathing, 2 weather faces, 3 Ask Dad, 4 footer feed, 5 loop effect, 6 mission log, 7 animals,
+   8 space, 9 weather story, 10 weather sway, 11 slowest ambient, 12 other. */
+:root{
+  --phim9:0.0132s;--phim8:0.0213s;--phim7:0.0344s;--phim6:0.0557s;--phim5:0.0902s;--phim4:0.1459s;--phim3:0.2361s;--phim2:0.3820s;--phim1:0.6180s;--phi0:1.0000s;--phi1:1.6180s;--phi2:2.6180s;--phi3:4.2361s;--phi4:6.8541s;--phi5:11.0902s;--phi6:17.9443s;--phi7:29.0344s;--phi8:46.9787s;--g1:0.6180;--g2:0.2361;--g3:0.8541;--g4:0.4721;--g5:0.0902;--g6:0.7082;--g7:0.3262;--g8:0.9443;--g9:0.5623;--g10:0.1803;--g11:0.7984;--g12:0.4164}

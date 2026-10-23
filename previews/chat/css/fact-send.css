@@ -1,0 +1,37 @@
+/* Send to Simmie pop-ups (preview): age-dial mock-up palette. */
+.fs-dlg{position:fixed;inset:auto 0 auto 0;margin:0 auto;padding:0;border:0;background:transparent;width:min(420px,calc(100vw - 20px));overflow:visible;color:#F3EAF0}
+.fs-dlg::backdrop{background:rgba(14,12,22,.45)}
+.fs-win{position:relative;overflow:hidden;border-radius:10px;background:#1F1B30;border:2px solid #2A9D9F;box-shadow:0 0 14px rgba(42,157,159,.25),0 14px 36px rgba(0,0,0,.4);
+  padding:12px 14px 14px;font-family:"Alegreya Sans",Helvetica,Arial,sans-serif;
+  background-image:repeating-linear-gradient(90deg,#F8CFDB 0 18px,#FBE7B0 18px 36px,#C8EBD5 36px 54px,#B5E3E0 54px 72px,#DCD0F2 72px 90px);background-size:100% 3px;background-repeat:no-repeat}
+.fs-x{position:absolute;top:9px;right:10px;font:700 .78rem/1 ui-monospace,Menlo,Consolas,monospace;padding:5px 8px;border-radius:6px;border:0;background:#0E0C16;color:#F8CFDB;box-shadow:inset 0 0 0 2px #E58AA6;cursor:pointer}
+.fs-h{margin:2px 70px 8px 0;font:400 1.25rem/1.15 "Kaushan Script",cursive;color:#E58AA6}
+.fs-fact{margin:0;font-size:1.05rem;line-height:1.4;color:#F3EAF0}
+.fs-src{margin:.35rem 0 0;font-size:.9rem}.fs-src a{color:#F2A541}
+.fs-lbl{display:block;margin:0 0 4px;font-size:.85rem;color:#B5E3E0}
+.fs-dlg textarea.fs-note{width:100%;resize:none;font:inherit;font-size:16px;line-height:1.35;padding:8px 10px;border-radius:8px;border:2px solid #14555A;background:#0E0C16;color:#F3EAF0;caret-color:#F2A541}
+.fs-dlg textarea.fs-note::placeholder{color:#C9BFD3;opacity:.75}
+.fs-dlg textarea.fs-note:focus{border-color:#2A9D9F;box-shadow:0 0 0 3px rgba(42,157,159,.25)}
+.fs-row{display:flex;flex-wrap:wrap;justify-content:flex-end;gap:8px;margin-top:12px}
+.fs-btn{font:700 .95rem/1 "Alegreya Sans",Helvetica,Arial,sans-serif;padding:10px 14px;border-radius:6px;border:0;background:#0E0C16;color:#F8CFDB;box-shadow:inset 0 0 0 2px #E58AA6;cursor:pointer}
+.fs-btn.fs-primary{background:#F2A541;color:#24292E;box-shadow:none}
+.fs-btn:focus-visible,.fs-x:focus-visible,.fs-src a:focus-visible{outline:2px solid #F2A541;outline-offset:2px}
+.fs-btn.fs-primary:focus-visible{outline-color:#F8CFDB}
+.fs-s3{padding:18px 0 14px;text-align:center;font:700 1.1rem/1.3 ui-monospace,Menlo,Consolas,monospace;color:#F2A541;outline:0}
+.fs-s3::before{content:"◌ ";color:#C8EBD5}
+/* in-place step swap */
+.fs-step.fs-out{animation:fs-out var(--phim3) ease-in forwards}
+.fs-step.fs-in{animation:fs-in var(--phim3) ease-out both}
+@keyframes fs-out{to{opacity:0;transform:translateX(-14px)}}
+@keyframes fs-in{from{opacity:0;transform:translateX(14px)}to{opacity:1;transform:none}}
+/* send animation: teal/amber signal ripple, an envelope floats up and away */
+.fs-ripple{position:absolute;left:50%;top:55%;width:0;height:0;pointer-events:none}
+.fs-ripple i{position:absolute;left:-28px;top:-28px;width:56px;height:56px;border-radius:50%;border:2px solid #2A9D9F;opacity:0}
+.fs-ripple i:nth-child(2){border-color:#F2A541}
+.fs-win.is-sent .fs-ripple i{animation:fs-ring var(--phi0) ease-out both}
+.fs-win.is-sent .fs-ripple i:nth-child(2){animation-delay:var(--phim4)}.fs-win.is-sent .fs-ripple i:nth-child(3){animation-delay:calc(2 * var(--phim4))}
+@keyframes fs-ring{0%{transform:scale(.2);opacity:.9}100%{transform:scale(6);opacity:0}}
+.fs-env{position:absolute;left:50%;top:60%;margin-left:-10px;font-size:20px;opacity:0;pointer-events:none}
+.fs-win.is-sent .fs-env{animation:fs-env var(--phi0) cubic-bezier(.4,0,.8,.5) var(--phim5) both}
+@keyframes fs-env{0%{opacity:1;transform:translateY(0) scale(.8)}100%{opacity:0;transform:translate(40px,-120px) rotate(18deg) scale(1.1)}}
+@media (prefers-reduced-motion:reduce){.fs-win *,.fs-win{animation:none!important}.fs-ripple,.fs-env{display:none}}

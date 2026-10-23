@@ -1,0 +1,9 @@
+/* Preview-only additions: amber band, interlude lanes, 'preview, not sent' tweaks */
+.pv-band{flex:none;margin:0;padding:3px 10px;background:#F2A541;color:#24292E;font:700 .78rem/1.3 "Alegreya Sans",Helvetica,Arial,sans-serif;text-align:center;letter-spacing:.2px}
+.il-lane{position:relative;flex:none;height:15px;overflow:hidden;pointer-events:none}
+.il-it{position:absolute;left:0;bottom:0;font-size:12px;line-height:1;will-change:transform}
+.il-g,.il-f{display:inline-block}
+.il-bird{filter:drop-shadow(0 0 3px rgba(110,170,255,.9))}
+.ad-sent::before{content:"◌ "}
+@media (max-height:480px){.il-lane{display:none}}
+@media (prefers-reduced-motion:reduce){.il-lane{display:none}}

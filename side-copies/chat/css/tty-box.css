@@ -1,0 +1,55 @@
+/* Timing: golden-ratio rules (js/phi-timing.js, ~/.config/phi-timing-rules.md). Simmie palette = Bonnie slot x PHI^-1.5:
+   cursor/breathing/eye blink 1.272s (PHI^0.5), sheen 3.330s (PHI^2.5), talking bob 0.300s (PHI^-2.5).
+   simmie — tty: compact terminal talk box (self-contained; prefix .tty-). Same spec as the questionnaire-preview
+   terminal box so the two can be unified later. Palette: near-black body, terminal teal-green text, amber prompts,
+   three pastel dots in the title bar. */
+.tty{--tty-bg:#0B0F10;--tty-bar:#161C1E;--tty-text:#5EE6C0;--tty-dim:#3E8F7C;--tty-amber:#F2A541;--tty-line:#24363A;
+  --tty-lh:1.35em;--tty-rows:2;
+  position:relative;margin:4px 12px 6px;border-radius:10px;overflow:hidden;background:var(--tty-bg);
+  border:1px solid var(--tty-line);box-shadow:0 2px 8px rgba(10,20,22,.25);
+  font-family:ui-monospace,"SF Mono",Menlo,Consolas,"Liberation Mono",monospace;font-size:13px;line-height:var(--tty-lh);color:var(--tty-text);
+  -webkit-tap-highlight-color:transparent}
+.tty-bar{display:flex;align-items:center;gap:5px;height:18px;padding:0 8px;background:var(--tty-bar);border-bottom:1px solid var(--tty-line)}
+.tty-dot{width:7px;height:7px;border-radius:50%;flex:none}
+.tty-dot:nth-child(1){background:#F8B4C8}.tty-dot:nth-child(2){background:#FBE7B0}.tty-dot:nth-child(3){background:#BFE8D2}
+.tty-title{flex:1;text-align:center;margin-right:26px;font-size:10px;letter-spacing:.5px;color:#8FA9A4}
+.tty-body{position:relative;display:block;width:100%;padding:5px 10px 5px 52px;min-height:calc(var(--tty-lh) * var(--tty-rows) + 10px);
+  background:none;border:0;color:inherit;font:inherit;text-align:left;cursor:text}
+.tty-body:focus-visible{outline:2px solid var(--tty-amber);outline-offset:-2px}
+.tty-screen{height:calc(var(--tty-lh) * var(--tty-rows));overflow:hidden}
+.tty-row{white-space:pre;overflow:hidden;text-overflow:ellipsis;height:var(--tty-lh)}
+.tty-p{color:var(--tty-amber)}
+.tty-row.dim{color:var(--tty-dim)}
+.tty-cur{display:inline-block;width:.62em;height:1.05em;vertical-align:-.15em;background:var(--tty-text);margin-left:1px;animation:tty-blink 1.272s steps(1) -0.786s infinite}
+@keyframes tty-blink{50%{opacity:0}}
+.tty-in-row{display:flex;align-items:center;height:var(--tty-lh)}
+.tty-in-wrap{position:relative;flex:1;min-width:0;height:var(--tty-lh)}
+.tty input.tty-input{position:absolute;inset:0;width:100%;height:100%;padding:0;margin:0;border:0;border-radius:0;outline:0;box-shadow:none;background:transparent;
+  width:123.077%;height:123.077%;font:inherit;font-size:16px;line-height:var(--tty-lh);color:var(--tty-text);caret-color:transparent;transform:scale(.8125);transform-origin:0 0}
+.tty input.tty-input:focus{box-shadow:none;border:0;background:transparent}
+.tty-input::placeholder{color:var(--tty-dim)}
+.tty-in-wrap .tty-cur{position:absolute;top:.15em;left:0;pointer-events:none}
+.tty-send{flex:none;margin-left:6px;font:inherit;font-size:11px;padding:0 7px;height:1.25em;line-height:1.2;border-radius:4px;border:1px solid var(--tty-amber);background:transparent;color:var(--tty-amber);cursor:pointer}
+/* Cloud Simmie (inline copy of img/simmie-cloud.svg): breathing, shimmer, blink; bobs while typing */
+.tty-cloud{position:absolute;left:8px;top:50%;width:36px;height:32px;margin-top:-16px;pointer-events:none}
+.tty-cloud svg,.tty-cloud img{display:block;width:100%;height:100%;overflow:visible;animation:tty-breathe 1.272s ease-in-out -0.786s infinite;transform-origin:50% 80%}
+.tty-cloud .eyes{transform-box:fill-box;transform-origin:50% 50%;animation:tty-eyes 1.272s -0.786s infinite}
+.tty-shine{position:absolute;inset:0;-webkit-mask:url(../img/simmie-cloud.svg) center/contain no-repeat;mask:url(../img/simmie-cloud.svg) center/contain no-repeat;
+  background:linear-gradient(110deg,transparent 35%,rgba(255,236,200,.45) 50%,transparent 65%) -60px 0/200% 100% no-repeat;animation:tty-shimmer 3.330s ease-in-out -1.387s infinite}
+.tty.talking .tty-cloud{animation:tty-bob 0.300s ease-in-out infinite}
+@keyframes tty-breathe{0%,100%{transform:scale(1)}50%{transform:scale(1.05)}}
+@keyframes tty-eyes{0%,92%,100%{transform:scaleY(1)}95%{transform:scaleY(.1)}}
+@keyframes tty-shimmer{0%,55%{background-position:-60px 0}85%,100%{background-position:60px 0}}
+@keyframes tty-bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-2px)}}
+.tty-mlog{padding:3px 10px 4px;border-top:1px dashed var(--tty-line);font-size:10px;line-height:12px;height:52px;overflow:hidden;color:var(--tty-dim);display:flex;flex-direction:column;justify-content:flex-end}
+.tty-mrow{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;transition:opacity var(--phim1)}
+.tty-mrow .ts{color:#8A6A3A}
+.tty-mrow:last-child{color:var(--tty-text)}.tty-mrow:last-child .ts{color:var(--tty-amber)}
+.tty-sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap}
+@media (min-width:700px){.tty{--tty-rows:3}}
+@media (prefers-reduced-motion:reduce){
+  .tty *,.tty{animation:none!important;transition:none!important}
+  .tty-shine{display:none}
+}
+/* phone in landscape / very short screens: one terminal row, mission log folded away so the thread keeps room */
+@media (max-height:480px){.tty{--tty-rows:1;margin-top:2px;margin-bottom:4px}.tty-mlog{display:none}}

@@ -1,0 +1,36 @@
+/* "One of many ways to play" row (rules 8-9): dial, spring-back lever, native switch, tiny haptics key; 6-bar meters.
+   Its own slim row under the thread, right-aligned: clear of the feed, the terminal, the animal lanes and the composer.
+   Colours from the age-dial palette on the true-black page. Transitions on phi steps. */
+.play{flex:none;display:flex;align-items:center;justify-content:flex-end;gap:12px;height:26px;padding:0 12px;margin:0;background:transparent}
+.pl-hint{margin-right:auto;font:italic .72rem/1 "Alegreya Sans",Helvetica,Arial,sans-serif;color:#8C8399;white-space:nowrap}
+.pl-ctl{display:inline-flex;align-items:center;gap:5px}
+.pl-meter{display:inline-flex;align-items:flex-end;gap:1.5px;height:13px}
+.pl-meter i{display:block;width:3px;border-radius:1px;background:#2A2633;transition:background var(--phim5)}
+.pl-meter i:nth-child(1){height:4px}.pl-meter i:nth-child(2){height:5.5px}.pl-meter i:nth-child(3){height:7px}
+.pl-meter i:nth-child(4){height:8.5px}.pl-meter i:nth-child(5){height:10.5px}.pl-meter i:nth-child(6){height:13px}
+.pl-meter i.on:nth-child(-n+2){background:#B5E3E0}.pl-meter i.on:nth-child(3),.pl-meter i.on:nth-child(4){background:#F8CFDB}
+.pl-meter i.on:nth-child(5){background:#E58AA6}.pl-meter i.on:nth-child(6){background:#F2A541}
+.pl-meter i.pk{background:#C9BFD3}
+.pl-meter.over i:nth-child(6){box-shadow:0 0 4px #F2A541}
+/* dial */
+.pl-dial{position:relative;width:22px;height:22px;border-radius:50%;background:radial-gradient(circle at 40% 35%,#2E2840,#171425);border:1px solid #3A3350;cursor:grab;touch-action:none;
+  transform:rotate(var(--a,-135deg));transition:transform var(--phim4)}
+.pl-dial-mark{position:absolute;left:50%;top:2px;width:2px;height:6px;margin-left:-1px;border-radius:1px;background:#F8CFDB}
+/* lever: a thin groove with an upright handle (reads differently from the round switch) */
+.pl-lever{position:relative;display:inline-block;width:44px;height:18px;cursor:grab;touch-action:none;border-radius:4px}
+.pl-lever::before{content:"";position:absolute;left:2px;right:2px;top:50%;height:3px;margin-top:-1.5px;border-radius:2px;background:#2A2633;box-shadow:inset 0 0 0 1px #3A3350}
+.pl-knob{position:absolute;top:2px;left:0;width:7px;height:14px;border-radius:3px;background:#E58AA6;box-shadow:0 0 0 1px #1F1B30;transform:translateX(calc(var(--p,0) * 37px))}
+.pl-lever.spring .pl-knob{transition:transform var(--phim2) cubic-bezier(.3,1.6,.5,1)}
+/* switch: native where supported (iOS 18+ ticks); drawn fallback elsewhere */
+.pl-sw{margin:0;accent-color:#E58AA6}
+.pl-sw-drawn{appearance:none;-webkit-appearance:none;position:relative;width:26px;height:15px;border-radius:8px;background:#2A2633;border:1px solid #3A3350;cursor:pointer;transition:background var(--phim3)}
+.pl-sw-drawn::after{content:"";position:absolute;top:1px;left:1px;width:11px;height:11px;border-radius:50%;background:#C9BFD3;transition:transform var(--phim3)}
+.pl-sw-drawn:checked{background:#E58AA6}.pl-sw-drawn:checked::after{transform:translateX(11px);background:#fff}
+.pl-hap{width:22px;height:20px;padding:0;border:0;border-radius:5px;background:transparent;color:#8C8399;font:700 .8rem/1 system-ui,sans-serif;cursor:pointer}
+.pl-hap[aria-pressed="true"]{color:#B5E3E0}
+.pl-hap[hidden]{display:none}
+.pl-dial:focus-visible,.pl-lever:focus-visible,.pl-sw:focus-visible,.pl-hap:focus-visible{outline:2px solid #F2A541;outline-offset:2px}
+@media (max-width:360px){.pl-hint{display:none}}
+@media (max-height:480px){.play{height:22px}}
+@media (pointer:coarse){.play{gap:14px;height:30px}.pl-dial{width:24px;height:24px}.pl-lever{height:24px;width:48px}.pl-knob{top:4px;width:8px;height:16px;transform:translateX(calc(var(--p,0) * 40px))}}
+@media (prefers-reduced-motion:reduce){.pl-dial,.pl-knob,.pl-lever.spring .pl-knob,.pl-sw-drawn,.pl-sw-drawn::after,.pl-meter i{transition:none!important}}

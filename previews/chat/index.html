@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en-AU" data-preview="1">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#000000">
+<title>Preview for Dad: Chat with Simmie</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;700&family=Gochi+Hand&family=Kaushan+Script&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/phi-timing.css?v=1">
+<link rel="stylesheet" href="css/dad-palette.css?v=1">
+<link rel="stylesheet" href="css/chat.css?v=phi1">
+<link rel="stylesheet" href="css/tty-box.css?v=phi1">
+<link rel="stylesheet" href="css/weather-chip.css?v=phi1">
+<link rel="stylesheet" href="css/ask-dad.css?v=phi1">
+<link rel="stylesheet" href="css/preview.css?v=2">
+<link rel="stylesheet" href="css/ticker.css?v=phi1">
+<link rel="stylesheet" href="css/fact-band.css?v=phi1">
+<link rel="stylesheet" href="css/fact-send.css?v=phi1">
+<link rel="stylesheet" href="css/msg-pulse.css?v=1">
+<link rel="stylesheet" href="css/play-meters.css?v=2">
+</head>
+<body>
+<main id="app">
+
+  <section id="screen-chat" class="screen chat" hidden>
+    <p class="pv-band" role="note">Preview for Dad, not Bonnie's real chat page</p>
+    <header class="chat-head">
+      <div class="who">
+        <div class="avatar" aria-hidden="true">S</div>
+        <div><div class="name">Simmie</div><div id="status" class="status">Replies usually take under a minute</div></div>
+      </div>
+      <span id="wx" class="wx" role="img" hidden></span>
+      <button id="lock-btn" class="ghost" type="button" title="Lock (off in this preview)" aria-label="Lock (off in this preview)" disabled>🔒<span class="lock-word"> Lock</span></button>
+    </header>
+    <div id="ft-live" class="tty-sr" aria-live="polite"></div>
+    <div id="lane-h" class="il-lane" aria-hidden="true"></div>
+    <div id="log" class="log" aria-live="polite" aria-label="Messages"></div>
+    <div id="typing" class="typing" hidden><span class="dots"><i></i><i></i><i></i></span> <span id="typing-text">Waiting for Simmie…</span></div>
+    <div id="play" class="play"></div>
+    <div id="lane-f" class="il-lane" aria-hidden="true"></div>
+    <section id="tty-dock" class="tty-dock" aria-label="Simmie terminal" hidden></section>
+    <form id="send-form" class="composer" autocomplete="off">
+      <textarea id="msg" rows="1" maxlength="1500" placeholder="Type a message…" aria-label="Message"></textarea>
+      <button id="send-btn" class="send" type="submit" aria-label="Send">➤</button>
+    </form>
+    <section class="fact-ticker" id="fact-ticker" aria-label="Simmie feed: fun facts and updates" hidden data-facts="../../facts.json" data-age="../../age-dial.json">
+      <div class="ft-row"><div class="ft-window"><div class="ft-track"></div></div>
+      <a class="ft-chat" id="ft-chat" href="https://edgerequals.github.io/simmie-chat/" hidden>Chat →</a>
+      <button class="ft-btn ft-pause" type="button" aria-pressed="false" aria-label="Pause the fun facts">&#10074;&#10074;</button>
+      <button class="ft-btn ft-next" type="button" aria-label="Next fact">&rarr;</button></div>
+    </section>
+  </section>
+
+</main>
+<script src="js/phi-timing.js?v=2"></script>
+<script src="js/weather-chip.js?v=3"></script>
+<script src="js/tty-box.js?v=phi1"></script>
+<script src="js/ask-dad.js?v=phi1"></script>
+<script src="js/app-preview.js?v=phi1"></script>
+<script src="js/interludes.js?v=phi1"></script>
+<script src="js/fact-ticker.js?v=phi1"></script>
+<script src="js/fact-send.js?v=phi1"></script>
+<script src="js/msg-pulse.js?v=2"></script>
+<script src="js/play-meters.js?v=2"></script>
+</body>
+</html>

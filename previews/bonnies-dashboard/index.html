@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="robots" content="nofollow">
+<meta name="referrer" content="no-referrer">
+<title>Bonnie's Dashboard (preview for Dad)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Alegreya+Sans:ital,wght@0,400;0,700;1,400&family=Gochi+Hand&family=Kaushan+Script&family=Lora:wght@500&display=swap">
+<link rel="stylesheet" href="css/mod.css?v=5">
+<link rel="stylesheet" href="css/hud.css?v=2">
+<link rel="stylesheet" href="css/night.css?v=4">
+<link rel="stylesheet" href="css/play.css?v=1">
+<script src="js/phi-timing.js?v=1"></script>
+<script src="js/config.js?v=2"></script>
+<script src="js/crypto.js?v=3"></script>
+<script src="js/mlog.js?v=2" defer></script>
+<script src="js/hud.js?v=2" defer></script>
+<script src="js/talk.js?v=4" defer></script>
+<script src="js/interludes.js?v=2" defer></script>
+<script src="js/play.js?v=1" defer></script>
+<script src="js/app.js?v=7" defer></script>
+</head>
+<body class="locked">
+<p class="preview-band" role="note">Preview for Dad, not Bonnie's real dashboard</p>
+
+<!-- Passcode gate -->
+<section id="gate" class="gate" aria-labelledby="gate-title">
+  <div class="gate-card dots-brick">
+    <div class="wordmark"><span class="script">rebel</span><span class="serif">la</span></div>
+    <p class="mod-label">Bonnie's Dashboard</p>
+    <h1 id="gate-title" class="hand">Team only</h1>
+    <p class="gate-intro">Enter the passcode to review content for Rebella.</p>
+    <form id="gate-form" autocomplete="off">
+      <label for="passcode" class="sr-only">Passcode</label>
+      <input id="passcode" class="field dots-mustard" type="password" autocomplete="off" autocapitalize="none" autocorrect="off" spellcheck="false" inputmode="text" autocomplete="current-password" placeholder="Passcode" required>
+      <button class="btn btn-primary btn-block" type="submit">Unlock</button>
+      <p id="gate-msg" class="gate-msg" role="alert" aria-live="polite"></p>
+    </form>
+    <p class="gate-note">Private page. Not part of the public magazine.</p>
+  </div>
+</section>
+
+<!-- Dashboard (hidden until unlocked) -->
+<div id="app" hidden>
+  <!-- background layers (behind everything; decorative) -->
+  <div class="wx-bg" aria-hidden="true">
+    <video id="wx-bg-video" class="wx-bg-video" muted loop playsinline autoplay preload="none" poster="../../media/space-loop-poster.webp" disablepictureinpicture tabindex="-1"></video>
+    <div class="wx-code"></div>
+  </div>
+  <div class="topbar"><div class="container">
+    <span class="tagline">Keep Rebella safe, fun and cool</span>
+    <span class="tb-right"><button id="lock" class="lockbtn" type="button" aria-label="Lock dashboard">&#128274; Lock</button>
+    <!-- Ask Dad: amber circle pinned top-right of the header, Lock just to its left -->
+    <button id="ask-dad" class="ask-dad" type="button" aria-haspopup="dialog" aria-expanded="false" aria-controls="dad-panel" aria-label="Ask Dad"><span class="ad-orbit" aria-hidden="true"><span class="ad-sat">🛰️</span></span><span class="ad-ico" aria-hidden="true">📡</span> Ask Dad</button></span>
+  </div></div>
+  <!-- weather chip + age-linked fun-fact ticker -->
+  <div class="wx-hud"><div id="il-head" class="il-lane il-head" aria-hidden="true"></div><div class="container">
+    <div id="wx-ticker" class="wx-ticker" role="marquee" aria-label="Fun facts"><div id="wx-tick-track" class="wx-tick-track"></div></div>
+    <span id="wx-seq" class="wx-seq" aria-hidden="true"></span><span id="wx-chip" class="wx-chip" role="img" hidden><span class="wx-text"></span></span>
+  </div></div>
+  <header class="masthead"><div class="container">
+    <div class="brand">
+      <div class="wordmark small"><span class="script">rebel</span><span class="serif">la</span></div>
+      <span class="mod-pill">Bonnie's Dashboard</span>
+    </div>
+    <div class="head-actions">
+      <button id="export" class="btn btn-info" type="button">Export decisions (JSON)</button>
+      <button id="reset" class="btn btn-secondary" type="button" aria-expanded="false" aria-controls="reset-strip">Reset all</button>
+      <div id="reset-strip" class="confirm-strip danger" hidden>
+        <span class="cs-text" id="reset-q">Clear the decisions saved in this browser? Decisions already sent to the publisher stay.</span>
+        <span class="cs-btns"><button id="reset-yes" class="btn btn-danger" type="button" aria-describedby="reset-q">Yes, clear them</button><button id="reset-no" class="btn btn-secondary" type="button">Cancel</button></span>
+      </div>
+      <p id="reset-msg" class="inline-msg" aria-live="polite"></p>
+    </div>
+  </div></header>
+
+  <main class="container" id="main">
+    <div class="notice dots-mustard">
+      <span class="example">Real</span>
+      These are real articles, photos and videos the scanner found on sites that allow reuse. Nothing goes on Rebella unless you approve it.
+      <strong>Approve</strong> sends it to be published as its own page (usually live within a few minutes). <strong>Reject</strong> is logged and it's never suggested again.
+    </div>
+    <p class="queue-meta" id="queue-meta"></p>
+
+    <nav class="tabs" role="tablist" aria-label="Filter queue">
+      <button role="tab" class="tab" data-filter="pending" aria-selected="true">Pending <span class="count" id="c-pending">0</span></button>
+      <button role="tab" class="tab" data-filter="approved" aria-selected="false">Approved <span class="count" id="c-approved">0</span></button>
+      <button role="tab" class="tab" data-filter="rejected" aria-selected="false">Rejected <span class="count" id="c-rejected">0</span></button>
+      <button role="tab" class="tab" data-filter="all" aria-selected="false">All <span class="count" id="c-all">0</span></button>
+    </nav>
+
+    <div id="queue" class="queue" aria-live="polite"></div>
+    <p id="empty" class="empty hand" hidden>Nothing here. Nice work!</p>
+  </main>
+
+  <footer class="footer"><div class="container">
+    <span>Bonnie's Dashboard</span><span>Decisions are sent securely to Simmie's publisher</span>
+  </div></footer>
+
+  <template id="biplane-tpl"><svg class="biplane" viewBox="0 0 48 30" width="64" height="40" aria-hidden="true" focusable="false">
+    <g stroke="#2A9D9F" stroke-width="1.2" stroke-linejoin="round">
+      <rect x="9" y="3" width="28" height="4" rx="2" fill="#F8CFDB"/>
+      <line x1="15" y1="7" x2="15" y2="17"/><line x1="31" y1="7" x2="31" y2="17"/><line x1="15" y1="7" x2="31" y2="17" stroke-width=".8"/>
+      <path d="M2 12 L8 9 L9 15 Z" fill="#F2A541"/><path d="M1 8 L5 8 L8 13 L4 13 Z" fill="#F8CFDB"/>
+      <path d="M6 13 Q22 8 38 11 Q41 14 38 17 Q22 19 6 15 Z" fill="#FBE7B0"/>
+      <rect x="9" y="16" width="28" height="4" rx="2" fill="#F8CFDB"/>
+      <circle cx="40" cy="14" r="2.6" fill="#F2A541"/>
+      <line x1="20" y1="20" x2="18" y2="25"/><line x1="26" y1="20" x2="28" y2="25"/><circle cx="18" cy="26" r="2" fill="#14555A"/><circle cx="28" cy="26" r="2" fill="#14555A"/>
+      <circle cx="22" cy="12" r="1.6" fill="#14555A" stroke="none"/>
+    </g>
+    <g class="bp-prop"><rect x="42.2" y="6" width="1.6" height="16" rx=".8" fill="#DCD0F2" opacity=".85"/></g>
+  </svg></template>
+  <!-- Ask Dad transmission window (the one pop-up; Esc or the close key dismisses it) -->
+  <section id="dad-panel" class="dad-panel" role="dialog" aria-modal="false" aria-labelledby="dad-title" hidden>
+    <div class="dp-head"><h2 id="dad-title" class="dp-title">transmit to Dad</h2><button id="dp-x" class="dp-x" type="button" aria-label="Close, don't send">×</button></div>
+    <form id="dp-form" class="dp-form" autocomplete="off">
+      <div class="dp-chips" role="group" aria-label="Quick messages">
+        <button type="button" class="dp-chip">Can we talk?</button><button type="button" class="dp-chip">Can you check something on my page?</button><button type="button" class="dp-chip">Just saying hi</button>
+      </div>
+      <label for="dp-text" class="sr-only">Message to Dad</label>
+      <textarea id="dp-text" class="dp-text" rows="2" maxlength="1200" placeholder="&gt; type to Dad…"></textarea>
+      <div id="dp-keyrow" class="dp-keyrow" hidden><label for="dp-key" class="dp-keylab">chat password$</label><input id="dp-key" class="dp-key" type="password" autocomplete="current-password" aria-describedby="dp-keyhelp"><span id="dp-keyhelp" class="sr-only">Same password as your chat page. Kept for this tab only.</span></div>
+      <div class="dp-foot"><span id="dp-status" class="dp-status" role="status" aria-live="polite"></span><button id="dp-send" class="dp-send" type="submit">Transmit</button></div>
+    </form>
+    <span class="dp-ripple" aria-hidden="true"></span><span class="dp-sat" aria-hidden="true">🛰️</span>
+  </section>
+
+  <!-- interlude lanes (decorative; animals every PHI^5 = 11.09 s, space every PHI^4.5 = 8.72 s; js/phi-timing.js) -->
+  <div id="il-foot" class="il-lane il-foot" aria-hidden="true"></div>
+
+  <!-- quiet fixed footer bar: Simmie terminal + control strip + weather -->
+  <div id="wx-foot" class="wx-foot" role="region" aria-label="Simmie and status">
+    <div id="tty" class="tty">
+      <div class="tty-bar"><i aria-hidden="true"></i><i aria-hidden="true"></i><i aria-hidden="true"></i><span aria-hidden="true">simmie — tty</span><em id="tty-mlog" class="tty-mlog" aria-hidden="true"></em></div>
+      <div class="tty-body">
+        <span class="tty-cloudwrap"><span class="cl-orbit" aria-hidden="true"><span>🛰️</span></span><svg id="tty-cloud" class="tty-cloud" viewBox="0 0 196 172" aria-hidden="true" focusable="false"><defs><clipPath id="tty-cl"><circle cx="56.3" cy="116.7" r="45.4"/><circle cx="73.2" cy="73.7" r="60.7"/><circle cx="135.3" cy="86.8" r="51.3"/><circle cx="96.7" cy="105.1" r="56.2"/><circle cx="112.4" cy="53.7" r="43.1"/></clipPath><linearGradient id="tty-sh" x1="0" x2="1"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".35"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient></defs><g class="cl-body"><g fill="#8C6640"><circle cx="56.3" cy="116.7" r="45.4"/><circle cx="73.2" cy="73.7" r="60.7"/><circle cx="135.3" cy="86.8" r="51.3"/><circle cx="96.7" cy="105.1" r="56.2"/><circle cx="112.4" cy="53.7" r="43.1"/></g><g clip-path="url(#tty-cl)"><rect class="cl-shine" x="-120" y="0" width="90" height="172" fill="url(#tty-sh)"/></g><g class="cl-eyes" fill="#1E1E1E"><rect x="93.10" y="44.4" width="18" height="42" rx="9.0" transform="rotate(-27 102.1 65.4)"/><rect x="130.65" y="34.5" width="16.5" height="42" rx="8.25" transform="rotate(-27 138.9 55.5)"/></g></g></svg></span>
+        <button id="tty-open" class="tty-line" type="button" aria-label="Simmie says hello. Tap to talk to Simmie"><span class="tty-p">simmie&gt;</span> <span id="tty-out" class="tty-out"></span><span class="tty-hint" aria-hidden="true">tap to talk to Simmie</span></button>
+        <div id="tty-busy" class="tty-line tty-busy" hidden><span class="tty-p">simmie&gt;</span> <span id="tty-busy-text" class="tty-out"></span></div>
+        <form id="tty-form" class="tty-form" hidden autocomplete="off">
+          <label for="tty-in" id="tty-prompt" class="tty-p">bonnie$</label>
+          <span class="tty-inwrap"><input id="tty-in" class="tty-in" type="text" maxlength="1500" spellcheck="true" enterkeyhint="send"><span class="tty-cursor" aria-hidden="true"></span></span>
+          <button id="tty-send" class="tty-send" type="submit">Send</button>
+          <button id="tty-x" class="tty-x" type="button" aria-label="Close talk to Simmie">×</button>
+        </form>
+        <span id="tty-measure" class="tty-measure" aria-hidden="true">0000000000</span>
+      </div>
+      <p id="tty-live" class="sr-only" aria-live="polite"></p>
+    </div>
+    <div id="wx-mlog" class="wx-mlog" role="log" aria-label="Mission log" aria-live="off"></div>
+    <div class="wx-strip">
+      <span class="wx-light idle" data-light="queue" role="img" aria-label="QUEUE"><b></b><small><span class="lg">QUEUE</span><span class="sm">Q</span></small></span>
+      <span class="wx-light idle" data-light="fresh" role="img" aria-label="FRESH"><b></b><small><span class="lg">FRESH</span><span class="sm">F</span></small></span>
+      <span class="wx-light idle" data-light="link" role="img" aria-label="LINK"><b></b><small><span class="lg">LINK</span><span class="sm">L</span></small></span>
+      <span class="wx-light idle" data-light="sky" role="img" aria-label="SKY"><b></b><small><span class="lg">SKY</span><span class="sm">S</span></small></span>
+      <svg class="wx-wave" viewBox="0 0 80 16" aria-hidden="true"><path d="M0 8 Q5 2 10 8 T20 8 T30 8 T40 8 T50 8 T60 8 T70 8 T80 8 T90 8 T100 8 T110 8 T120 8 T130 8 T140 8 T150 8 T160 8"/></svg>
+      <svg id="wx-gauge" class="wx-gauge" viewBox="0 0 32 18" role="img" aria-label="Decided"><path class="g-arc" d="M3 16 A13 13 0 0 1 29 16"/><line class="g-needle" x1="16" y1="16" x2="16" y2="5"/><circle cx="16" cy="16" r="1.8"/></svg>
+    </div>
+    <span id="wx-readout" class="wx-readout" hidden></span>
+    <div id="wx-marquee" class="wx-marquee" aria-hidden="true" hidden><div id="wx-mq-track" class="wx-mq-track"></div></div>
+  </div>
+</div>
+
+</body>
+</html>

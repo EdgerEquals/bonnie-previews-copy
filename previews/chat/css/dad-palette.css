@@ -1,0 +1,10 @@
+/* Dad palette: used for everything Dad sends Bonnie (questionnaire preview, Dad's chat messages/questions).
+   Separate from Rebella's pastel palette (Bonnie's). All text/background pairs below meet WCAG AA (>= 4.5:1). */
+:root{
+  --dad-ocean:#0F5C6E;     /* main: frames, primary buttons, labels. White on ocean 7.6:1; ocean on sand 6.4:1 */
+  --dad-ocean-deep:#0A3F4C;/* headings/text on light Dad surfaces. On sand 9.7:1, on sky 9.4:1 */
+  --dad-amber:#F2A541;     /* accent: Send, picked answer. Charcoal on amber 7.2:1 (never white text on amber) */
+  --dad-sand:#F6EBD9;      /* surface: Dad's bubble/panels. Charcoal on sand 12.4:1 */
+  --dad-sky:#D6ECEF;       /* soft secondary buttons/hover. Deep on sky 9.4:1, charcoal on sky 12.0:1 */
+  --dad-charcoal:#24292E;  /* body text on Dad surfaces. On white 14.7:1 */
+}

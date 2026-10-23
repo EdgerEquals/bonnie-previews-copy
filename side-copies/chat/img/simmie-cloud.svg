@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 196 172" width="196" height="172" role="img" aria-label="Simmie">
+  <title>Simmie</title>
+  <!-- Traced from Simmie's app avatar. Body #8C6640 (5 overlapping lobes), eyes #1E1E1E (rounded pills tilted 27deg). Silhouette IoU 98.9%, eyes 95.9% vs the original. -->
+  <g fill="#8C6640">
+    <circle cx="56.3" cy="116.7" r="45.4"/>
+    <circle cx="73.2" cy="73.7" r="60.7"/>
+    <circle cx="135.3" cy="86.8" r="51.3"/>
+    <circle cx="96.7" cy="105.1" r="56.2"/>
+    <circle cx="112.4" cy="53.7" r="43.1"/>
+  </g>
+  <g fill="#1E1E1E">
+    <rect x="93.1" y="44.4" width="18" height="42" rx="9" transform="rotate(-27 102.1 65.4)"/>
+    <rect x="130.65" y="34.5" width="16.5" height="42" rx="8.25" transform="rotate(-27 138.9 55.5)"/>
+  </g>
+</svg>
